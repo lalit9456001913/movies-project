@@ -30,13 +30,8 @@ npm install
 ```
 
 ## Running the Servers
-
-### Backend Server
-Navigate to the `backend` folder and start the backend server:
-
 ```bash
-cd backend
-npm start
+ node index.js
 ```
 
 The backend server will start at [http://localhost:5000](http://localhost:5000).
@@ -63,7 +58,7 @@ This will create sample data for dsa tracker.
 
 1. Start the backend server.
 
-3. Open [http://localhost:5000](http://localhost:3000) in your browser to use the application.
+3. Open [http://localhost:5000/api/healthCheck'] in your browser and check heath status of application.
 
 ---
 
