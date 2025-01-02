@@ -8,7 +8,7 @@ const protectAdmin = async (req, res, next) => {
         if (!token) {
             return res.status(401).json({
                 success: false,
-                error: 'Not authorized'
+                error: 'Not authenticated!'
             });
         }
         

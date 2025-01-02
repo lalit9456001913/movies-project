@@ -1,11 +1,11 @@
 import User from '../models/user.js';
-import {getSignedToken} from "../services/userService.js"
+import { getSignedToken } from "../services/userService.js"
 
 export const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
-         console.log(email,password);
-         console.log(req.body);
+        console.log(email, password);
+        console.log(req.body);
         if (!email || !password) {
             return res.status(400).json({
                 success: false,
@@ -13,15 +13,14 @@ export const login = async (req, res, next) => {
             });
         }
 
-        const user = await User.findOne({ email,password}).select('+password');
-        console.log("user",user);
+        const user = await User.findOne({ email, password }).select('+password');
         if (!user) {
             return res.status(401).json({
                 success: false,
                 error: 'Invalid credentials',
             });
         }
-        req.user=user;
+        req.user = user;
         const token = getSignedToken(user);
 
 
@@ -37,6 +36,6 @@ export const login = async (req, res, next) => {
             success: false,
             error: 'Server error, please try again later',
         });
-        next(error); 
+        next(error);
     }
 };
